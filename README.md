@@ -6,7 +6,7 @@ A florist counter point-of-sale built with React 19, Vite 8, Tailwind v4, and sh
 
 **Live demo:** https://flowers.codespanda.com/
 **Docs:** https://flowers.codespanda.com/docs
-**Showcase:** https://flowers.codespanda.com/showcase
+**Showcase:** https://codespanda.com/templates/flowers
 
 ## Quick start
 

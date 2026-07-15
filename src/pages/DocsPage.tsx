@@ -100,7 +100,9 @@ export function DocsPage() {
               {isDark ? <Sun className="size-4" /> : <Moon className="size-4" />}
             </Button>
             <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
-              <Link to="/showcase">Showcase</Link>
+              <a href="https://codespanda.com/templates/flowers" target="_blank" rel="noreferrer">
+                Showcase
+              </a>
             </Button>
             <Button asChild variant="outline" size="sm" className="hidden sm:inline-flex">
               <a href={REPO_URL} target="_blank" rel="noreferrer">
