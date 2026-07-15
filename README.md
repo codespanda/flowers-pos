@@ -1,32 +1,28 @@
-# React + TypeScript + Vite
+# Marigold & Vine POS
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A florist counter point-of-sale built with React 19, Vite 8, Tailwind v4, and shadcn/ui — product grid, cart, coupons, orders, customers, and reports, fully responsive with dark mode.
 
-Currently, two official plugins are available:
+![Marigold & Vine POS dashboard](public/dashboard-screenshot.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Live demo:** https://codespanda.github.io/flowers-pos/
+**Docs:** https://codespanda.github.io/flowers-pos/docs
 
-## React Compiler
+## Quick start
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+git clone https://github.com/codespanda/flowers-pos.git
+cd flowers-pos
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Scripts
+
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Start the Vite dev server with HMR. |
+| `npm run build` | Type-check and build to `dist/`. |
+| `npm run preview` | Serve the production build locally. |
+| `npm run lint` | Run Oxlint across the project. |
+
+See the [docs page](https://codespanda.github.io/flowers-pos/docs) for project structure, routes, component usage, and theming.
