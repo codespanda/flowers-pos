@@ -55,7 +55,7 @@ const SCRIPTS_TABLE: Array<{ command: string; description: string }> = [
 
 const STRUCTURE_TREE = `src/
 ├─ App.tsx              # route table
-├─ main.tsx             # app entry (BrowserRouter)
+├─ main.tsx             # app entry (HashRouter)
 ├─ pages/                # route-level page components
 ├─ components/
 │  ├─ ui/                # shadcn primitives (Button, Card…)
