@@ -55,7 +55,7 @@ const SCRIPTS_TABLE: Array<{ command: string; description: string }> = [
 
 const STRUCTURE_TREE = `src/
 ├─ App.tsx              # route table
-├─ main.tsx             # app entry (HashRouter)
+├─ main.tsx             # app entry (BrowserRouter)
 ├─ pages/                # route-level page components
 ├─ components/
 │  ├─ ui/                # shadcn primitives (Button, Card…)
@@ -333,12 +333,23 @@ export function DocsPage() {
               />
               <div className="flex flex-col gap-6">
                 <div>
-                  <p className="mb-2 text-sm font-medium text-foreground">1. Base path</p>
+                  <p className="mb-2 text-sm font-medium text-foreground">1. Clean URLs on a static host</p>
                   <p className="mb-2 text-sm text-muted-foreground">
-                    This app is served from a custom domain, so it builds with the default root base path — no{' '}
-                    <code className="rounded bg-muted px-1 py-0.5 text-xs">base</code> override needed in vite.config.ts.
-                    Deploying to a project sub-path instead (no custom domain)? Set{' '}
-                    <code className="rounded bg-muted px-1 py-0.5 text-xs">base: '/your-repo-name/'</code>.
+                    GitHub Pages has no server-side rewrites, so a hard navigation to a nested route like{' '}
+                    <code className="rounded bg-muted px-1 py-0.5 text-xs">/orders</code> would 404 at the server
+                    before React Router ever sees it. public/404.html re-encodes the path and redirects to the
+                    root; a small script at the top of index.html decodes it back with{' '}
+                    <code className="rounded bg-muted px-1 py-0.5 text-xs">history.replaceState</code> before the
+                    router mounts — see{' '}
+                    <a
+                      href="https://github.com/rafgraph/spa-github-pages"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-brand hover:underline"
+                    >
+                      rafgraph/spa-github-pages
+                    </a>
+                    .
                   </p>
                 </div>
                 <div>
