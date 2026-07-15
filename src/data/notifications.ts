@@ -1,0 +1,68 @@
+import type { AppNotification } from '@/types'
+
+export const NOTIFICATIONS: AppNotification[] = [
+  {
+    id: 'notif-1',
+    type: 'order',
+    title: 'New order placed',
+    message: 'Order #1042 from Emma R. is ready for pickup today.',
+    createdAt: '2026-07-12T14:47:00',
+    read: false,
+  },
+  {
+    id: 'notif-2',
+    type: 'stock',
+    title: 'Low stock warning',
+    message: 'Garden Rose Dozen is running low — 4 bunches left.',
+    createdAt: '2026-07-12T13:10:00',
+    read: false,
+  },
+  {
+    id: 'notif-3',
+    type: 'customer',
+    title: 'New customer',
+    message: 'Jonah K. just placed his 22nd order — consider a loyalty reward.',
+    createdAt: '2026-07-12T10:41:00',
+    read: false,
+  },
+  {
+    id: 'notif-4',
+    type: 'system',
+    title: 'Coupon expiring soon',
+    message: 'FREESHIP expires on Jul 31 — 63 redemptions so far.',
+    createdAt: '2026-07-12T09:00:00',
+    read: true,
+  },
+  {
+    id: 'notif-5',
+    type: 'order',
+    title: 'Order refunded',
+    message: 'Order #1038 for Alicia W. was refunded ($42.00).',
+    createdAt: '2026-07-11T17:15:00',
+    read: true,
+  },
+  {
+    id: 'notif-6',
+    type: 'stock',
+    title: 'Back in stock',
+    message: 'Lavender & Eucalyptus Bunch is back in stock.',
+    createdAt: '2026-07-11T12:30:00',
+    read: true,
+  },
+  {
+    id: 'notif-7',
+    type: 'system',
+    title: 'Daily summary ready',
+    message: "Yesterday's report is ready — $1,245.50 in revenue across 12 orders.",
+    createdAt: '2026-07-11T08:00:00',
+    read: true,
+  },
+  {
+    id: 'notif-8',
+    type: 'customer',
+    title: 'Customer feedback',
+    message: 'Grace L. left a 5-star review for her Sunset Marigold Bouquet order.',
+    createdAt: '2026-07-10T16:40:00',
+    read: true,
+  },
+]
