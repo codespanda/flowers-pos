@@ -4,8 +4,8 @@ A florist counter point-of-sale built with React 19, Vite 8, Tailwind v4, and sh
 
 ![Marigold & Vine POS dashboard](public/dashboard-screenshot.png)
 
-**Live demo:** https://codespanda.github.io/flowers-pos/
-**Docs:** https://codespanda.github.io/flowers-pos/docs
+**Live demo:** https://flowers.codespanda.com/
+**Docs:** https://flowers.codespanda.com/docs
 
 ## Quick start
 
@@ -25,4 +25,4 @@ npm run dev
 | `npm run preview` | Serve the production build locally. |
 | `npm run lint` | Run Oxlint across the project. |
 
-See the [docs page](https://codespanda.github.io/flowers-pos/docs) for project structure, routes, component usage, and theming.
+See the [docs page](https://flowers.codespanda.com/docs) for project structure, routes, component usage, and theming.

@@ -20,7 +20,7 @@ import { ROUTES } from '@/config/routes'
 import { APP_CONFIG } from '@/config/app'
 
 const REPO_URL = 'https://github.com/codespanda/flowers-pos'
-const LIVE_URL = 'https://codespanda.github.io/flowers-pos/'
+const LIVE_URL = 'https://flowers.codespanda.com/'
 
 const TOC_SECTIONS = [
   { id: 'overview', label: 'Overview' },
@@ -335,14 +335,17 @@ export function DocsPage() {
                 <div>
                   <p className="mb-2 text-sm font-medium text-foreground">1. Base path</p>
                   <p className="mb-2 text-sm text-muted-foreground">
-                    In vite.config.ts, base is already set to the repo name so assets resolve under the Pages sub-path.
+                    This app is served from a custom domain, so it builds with the default root base path — no{' '}
+                    <code className="rounded bg-muted px-1 py-0.5 text-xs">base</code> override needed in vite.config.ts.
+                    Deploying to a project sub-path instead (no custom domain)? Set{' '}
+                    <code className="rounded bg-muted px-1 py-0.5 text-xs">base: '/your-repo-name/'</code>.
                   </p>
-                  <CodeBlock language="ts" code={`// vite.config.ts\nbase: '/flowers-pos/',`} />
                 </div>
                 <div>
                   <p className="mb-2 text-sm font-medium text-foreground">2. Enable Pages</p>
                   <p className="text-sm text-muted-foreground">
-                    In your repo: Settings → Pages → Source → GitHub Actions.
+                    In your repo: Settings → Pages → Source → GitHub Actions. A public/CNAME file keeps a custom
+                    domain attached across deploys.
                   </p>
                 </div>
                 <div>
