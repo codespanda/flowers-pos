@@ -1,12 +1,9 @@
-import { useEffect, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import {
   Flower2,
   Sun,
   Moon,
   ArrowRight,
-  Check,
-  Copy,
   Code2,
   Zap,
   Palette,
@@ -16,6 +13,10 @@ import {
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
+import { CodeBlock } from '@/components/docs/CodeBlock'
+import { Section } from '@/components/docs/Section'
+import { SectionHeading } from '@/components/docs/SectionHeading'
+import { useDarkToggle } from '@/hooks/useDarkToggle'
 import { ROUTES } from '@/config/routes'
 import { APP_CONFIG } from '@/config/app'
 
@@ -77,70 +78,6 @@ const STRUCTURE_TREE = `src/
 ├─ lib/                   # cn, format, validation helpers
 └─ types/                 # shared TypeScript types`
 
-function useDarkToggle() {
-  const [isDark, setIsDark] = useState(() => {
-    const stored = localStorage.getItem('theme')
-    if (stored) return stored === 'dark'
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-  })
-
-  useEffect(() => {
-    document.documentElement.classList.toggle('dark', isDark)
-    localStorage.setItem('theme', isDark ? 'dark' : 'light')
-  }, [isDark])
-
-  return { isDark, toggle: () => setIsDark((value) => !value) }
-}
-
-function CodeBlock({ code, language }: { code: string; language?: string }) {
-  const [copied, setCopied] = useState(false)
-
-  async function handleCopy() {
-    await navigator.clipboard.writeText(code)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 1500)
-  }
-
-  return (
-    <div className="overflow-hidden rounded-lg border border-border bg-muted">
-      {language && (
-        <div className="flex items-center justify-between border-b border-border px-3 py-1.5 text-xs font-medium text-muted-foreground">
-          <span className="uppercase tracking-wide">{language}</span>
-          <button
-            type="button"
-            onClick={handleCopy}
-            className="inline-flex items-center gap-1 hover:text-foreground"
-          >
-            {copied ? <Check className="size-3" /> : <Copy className="size-3" />}
-            {copied ? 'Copied' : 'Copy'}
-          </button>
-        </div>
-      )}
-      <pre className="overflow-x-auto p-3 text-xs leading-relaxed">
-        <code>{code}</code>
-      </pre>
-    </div>
-  )
-}
-
-function SectionHeading({ eyebrow, title, description }: { eyebrow: string; title: string; description?: string }) {
-  return (
-    <div className="mb-6">
-      <p className="text-xs font-semibold tracking-wide text-brand uppercase">{eyebrow}</p>
-      <h2 className="mt-1 text-2xl font-semibold text-foreground">{title}</h2>
-      {description && <p className="mt-2 max-w-2xl text-sm text-muted-foreground">{description}</p>}
-    </div>
-  )
-}
-
-function Section({ id, children }: { id: string; children: ReactNode }) {
-  return (
-    <section id={id} className="scroll-mt-20 border-t border-border pt-12 first:border-t-0 first:pt-0">
-      {children}
-    </section>
-  )
-}
-
 export function DocsPage() {
   const { isDark, toggle } = useDarkToggle()
 
@@ -158,21 +95,12 @@ export function DocsPage() {
             </Badge>
           </a>
 
-          <nav className="hidden items-center gap-1 lg:flex">
-            {TOC_SECTIONS.map((section) => (
-              <a
-                key={section.id}
-                href={`#${section.id}`}
-                className="rounded-md px-2.5 py-1.5 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
-              >
-                {section.label}
-              </a>
-            ))}
-          </nav>
-
           <div className="flex items-center gap-2">
             <Button variant="ghost" size="icon" aria-label="Toggle dark mode" onClick={toggle}>
               {isDark ? <Sun className="size-4" /> : <Moon className="size-4" />}
+            </Button>
+            <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
+              <Link to="/showcase">Showcase</Link>
             </Button>
             <Button asChild variant="outline" size="sm" className="hidden sm:inline-flex">
               <a href={REPO_URL} target="_blank" rel="noreferrer">
