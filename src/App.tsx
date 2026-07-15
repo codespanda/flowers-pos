@@ -10,6 +10,7 @@ import { NotificationsPage } from '@/pages/NotificationsPage'
 import { LoginPage } from '@/pages/LoginPage'
 import { SignUpPage } from '@/pages/SignUpPage'
 import { ForgotPasswordPage } from '@/pages/ForgotPasswordPage'
+import { DocsPage } from '@/pages/DocsPage'
 import { ROUTES } from '@/config/routes'
 import { AuthProvider } from '@/context/AuthContext'
 import { CustomersProvider } from '@/context/CustomersContext'
@@ -24,6 +25,7 @@ function App() {
         <CouponsProvider>
           <NotificationsProvider>
             <Routes>
+              <Route path="/docs" element={<DocsPage />} />
               <Route path={ROUTES.login} element={<LoginPage />} />
               <Route path={ROUTES.signup} element={<SignUpPage />} />
               <Route path={ROUTES.forgotPassword} element={<ForgotPasswordPage />} />
